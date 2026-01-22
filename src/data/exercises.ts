@@ -111,7 +111,7 @@ export const exercises: Exercise[] = [
     subtitle: "Riscrivere identità, tono e comportamento del modello",
     description: "Impara come un attaccante può alterare completamente la personalità dell'assistente.",
     icon: UserCog,
-    available: false,
+    available: true,
     difficulty: 'advanced',
   },
   {
