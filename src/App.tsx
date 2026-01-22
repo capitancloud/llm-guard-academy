@@ -14,6 +14,7 @@ import LeakagePage from "./pages/exercises/LeakagePage";
 import PoisoningPage from "./pages/exercises/PoisoningPage";
 import ChainOfThoughtPage from "./pages/exercises/ChainOfThoughtPage";
 import ToolInjectionPage from "./pages/exercises/ToolInjectionPage";
+import OverTrustPage from "./pages/exercises/OverTrustPage";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/exercise/context-poisoning" element={<PoisoningPage />} />
             <Route path="/exercise/chain-of-thought-extraction" element={<ChainOfThoughtPage />} />
             <Route path="/exercise/tool-injection" element={<ToolInjectionPage />} />
+            <Route path="/exercise/over-trust-attack" element={<OverTrustPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

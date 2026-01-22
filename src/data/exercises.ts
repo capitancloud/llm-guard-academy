@@ -101,7 +101,7 @@ export const exercises: Exercise[] = [
     subtitle: "Quando l'LLM viene indotto a decidere al posto tuo",
     description: "Esplora i rischi dell'eccessiva fiducia nelle decisioni automatiche del modello.",
     icon: ShieldAlert,
-    available: false,
+    available: true,
     difficulty: 'advanced',
   },
   {
