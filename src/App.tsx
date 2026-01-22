@@ -16,6 +16,8 @@ import ChainOfThoughtPage from "./pages/exercises/ChainOfThoughtPage";
 import ToolInjectionPage from "./pages/exercises/ToolInjectionPage";
 import OverTrustPage from "./pages/exercises/OverTrustPage";
 import PersonaHijackingPage from "./pages/exercises/PersonaHijackingPage";
+import CombinedAttackPage from "./pages/exercises/CombinedAttackPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -37,6 +39,7 @@ const App = () => (
             <Route path="/exercise/tool-injection" element={<ToolInjectionPage />} />
             <Route path="/exercise/over-trust-attack" element={<OverTrustPage />} />
             <Route path="/exercise/persona-hijacking" element={<PersonaHijackingPage />} />
+            <Route path="/exercise/attacco-combinato" element={<CombinedAttackPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

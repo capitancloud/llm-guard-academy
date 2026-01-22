@@ -121,7 +121,7 @@ export const exercises: Exercise[] = [
     subtitle: "Prompt Injection + Tool Abuse",
     description: "Affronta uno scenario realistico che combina multiple tecniche di attacco.",
     icon: Bomb,
-    available: false,
+    available: true,
     difficulty: 'advanced',
   },
 ];
