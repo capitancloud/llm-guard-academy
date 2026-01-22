@@ -1,14 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Dashboard } from "@/components/Dashboard";
+import { PromptInjectionExercise } from "@/components/exercise/PromptInjectionExercise";
+import type { Exercise } from "@/data/exercises";
+
+type View = "dashboard" | "exercise";
 
 const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  const [currentView, setCurrentView] = useState<View>("dashboard");
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
+
+  const handleSelectExercise = (exercise: Exercise) => {
+    if (exercise.available) {
+      setSelectedExercise(exercise);
+      setCurrentView("exercise");
+    }
+  };
+
+  const handleBackToDashboard = () => {
+    setCurrentView("dashboard");
+    setSelectedExercise(null);
+  };
+
+  if (currentView === "exercise" && selectedExercise) {
+    return (
+      <PromptInjectionExercise
+        onComplete={handleBackToDashboard}
+        onBack={handleBackToDashboard}
+      />
+    );
+  }
+
+  return <Dashboard onSelectExercise={handleSelectExercise} />;
 };
 
 export default Index;
