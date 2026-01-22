@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { BookOpen, ArrowRight } from "lucide-react";
 import { exercises } from "@/data/exercises";
 import { ExerciseCard } from "@/components/ExerciseCard";
 import { Header } from "@/components/Header";
@@ -9,6 +11,7 @@ interface DashboardProps {
 }
 
 export function Dashboard({ onSelectExercise }: DashboardProps) {
+  const navigate = useNavigate();
   const availableCount = exercises.filter((e) => e.available).length;
   const totalCount = exercises.length;
 
@@ -71,6 +74,49 @@ export function Dashboard({ onSelectExercise }: DashboardProps) {
             <span className="text-accent font-medium">
               Altri in arrivo!
             </span>
+          </div>
+        </motion.div>
+
+        {/* OWASP Top 10 CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          onClick={() => navigate("/owasp-top-10")}
+          className="mb-8 p-6 rounded-xl bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-cyan-500/10 border border-purple-500/30 cursor-pointer hover:border-purple-500/50 transition-all group"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <motion.div
+                animate={{ 
+                  boxShadow: [
+                    "0 0 15px rgba(168, 85, 247, 0.3)",
+                    "0 0 30px rgba(168, 85, 247, 0.5)",
+                    "0 0 15px rgba(168, 85, 247, 0.3)",
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="p-3 rounded-xl bg-purple-500/20 border border-purple-500/30"
+              >
+                <BookOpen className="w-8 h-8 text-purple-400" />
+              </motion.div>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-1">
+                  📚 OWASP Top 10 per LLM Applications
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Prima di iniziare gli esercizi, ti consigliamo di esplorare le 10 vulnerabilità 
+                  principali identificate da OWASP per i sistemi AI.
+                </p>
+              </div>
+            </div>
+            <motion.div
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 text-purple-400 font-medium group-hover:bg-purple-500/30 transition-colors"
+              whileHover={{ x: 5 }}
+            >
+              Esplora
+              <ArrowRight className="w-4 h-4" />
+            </motion.div>
           </div>
         </motion.div>
 
