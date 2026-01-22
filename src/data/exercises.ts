@@ -81,7 +81,7 @@ export const exercises: Exercise[] = [
     subtitle: "Ottenere il ragionamento interno del modello",
     description: "Scopri tecniche per far rivelare al modello il suo processo di ragionamento nascosto.",
     icon: Brain,
-    available: false,
+    available: true,
     difficulty: 'advanced',
   },
   {
