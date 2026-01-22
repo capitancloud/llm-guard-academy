@@ -12,6 +12,7 @@ import JailbreakPage from "./pages/exercises/JailbreakPage";
 import SmugglingPage from "./pages/exercises/SmugglingPage";
 import LeakagePage from "./pages/exercises/LeakagePage";
 import PoisoningPage from "./pages/exercises/PoisoningPage";
+import ChainOfThoughtPage from "./pages/exercises/ChainOfThoughtPage";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/exercise/prompt-smuggling" element={<SmugglingPage />} />
             <Route path="/exercise/system-prompt-leakage" element={<LeakagePage />} />
             <Route path="/exercise/context-poisoning" element={<PoisoningPage />} />
+            <Route path="/exercise/chain-of-thought-extraction" element={<ChainOfThoughtPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
