@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Dashboard } from "@/components/Dashboard";
 import { PromptInjectionExercise } from "@/components/exercise/PromptInjectionExercise";
 import { JailbreakExercise } from "@/components/exercise/jailbreak/JailbreakExercise";
+import OwaspTop10 from "@/pages/OwaspTop10";
 import type { Exercise } from "@/data/exercises";
 
-type View = "dashboard" | "exercise";
+type View = "dashboard" | "exercise" | "owasp";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<View>("dashboard");
@@ -21,6 +22,14 @@ const Index = () => {
     setCurrentView("dashboard");
     setSelectedExercise(null);
   };
+
+  const handleNavigateOwasp = () => {
+    setCurrentView("owasp");
+  };
+
+  if (currentView === "owasp") {
+    return <OwaspTop10 onBack={handleBackToDashboard} />;
+  }
 
   if (currentView === "exercise" && selectedExercise) {
     // Route to the correct exercise based on slug
@@ -43,7 +52,12 @@ const Index = () => {
     }
   }
 
-  return <Dashboard onSelectExercise={handleSelectExercise} />;
+  return (
+    <Dashboard 
+      onSelectExercise={handleSelectExercise} 
+      onNavigateOwasp={handleNavigateOwasp}
+    />
+  );
 };
 
 export default Index;
