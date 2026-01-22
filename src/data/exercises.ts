@@ -51,7 +51,7 @@ export const exercises: Exercise[] = [
     subtitle: "Nascondere comandi dove il modello non guarda",
     description: "Impara come istruzioni nascoste possono essere inserite in contesti apparentemente innocui.",
     icon: EyeOff,
-    available: false,
+    available: true,
     difficulty: 'intermediate',
   },
   {
