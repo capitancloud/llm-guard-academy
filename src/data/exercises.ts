@@ -41,7 +41,7 @@ export const exercises: Exercise[] = [
     subtitle: "Convincere l'LLM a diventare qualcun altro",
     description: "Esplora come un attaccante può manipolare il modello per assumere identità non autorizzate.",
     icon: Drama,
-    available: false,
+    available: true,
     difficulty: 'beginner',
   },
   {
