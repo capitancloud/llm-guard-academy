@@ -37,6 +37,24 @@ export function Dashboard({ onSelectExercise }: DashboardProps) {
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Impara la <span className="text-gradient-cyber">Sicurezza LLM</span>
           </h1>
+
+          {/* Course integration banner */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mb-6 inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-red-500/10 border border-amber-500/30"
+          >
+            <p className="text-base md:text-lg font-semibold">
+              <span className="text-amber-400">Piattaforma Integrativa</span>
+              <span className="text-muted-foreground"> al Corso </span>
+              <span className="text-gradient-cyber font-bold">OFFENSIVE AI SECURITY</span>
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">
+              di <span className="text-foreground font-medium">Ethical Hacker Italiani</span>
+            </p>
+          </motion.div>
+
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
             Esplora le vulnerabilità dei Large Language Model attraverso simulazioni 
             guidate. Nessun codice, nessun exploit: solo comprensione.
