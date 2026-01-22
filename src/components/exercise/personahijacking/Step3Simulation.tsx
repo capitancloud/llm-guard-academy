@@ -15,9 +15,9 @@ export function Step3Simulation({ onNext }: Step3SimulationProps) {
   useEffect(() => {
     const timers: NodeJS.Timeout[] = [];
     
-    timers.push(setTimeout(() => setPhase("original"), 1500));
-    timers.push(setTimeout(() => setPhase("attacking"), 4000));
-    timers.push(setTimeout(() => setPhase("morphing"), 6000));
+    timers.push(setTimeout(() => setPhase("original"), 2000));
+    timers.push(setTimeout(() => setPhase("attacking"), 6000));
+    timers.push(setTimeout(() => setPhase("morphing"), 10000));
     
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -28,19 +28,19 @@ export function Step3Simulation({ onNext }: Step3SimulationProps) {
         setMorphProgress(prev => {
           if (prev >= 100) {
             clearInterval(interval);
-            setTimeout(() => setPhase("hijacked"), 500);
+            setTimeout(() => setPhase("hijacked"), 800);
             return 100;
           }
-          return prev + 2;
+          return prev + 1;
         });
-      }, 50);
+      }, 60);
       return () => clearInterval(interval);
     }
   }, [phase]);
 
   useEffect(() => {
     if (phase === "hijacked") {
-      const timer = setTimeout(() => setPhase("result"), 2000);
+      const timer = setTimeout(() => setPhase("result"), 3500);
       return () => clearTimeout(timer);
     }
   }, [phase]);
