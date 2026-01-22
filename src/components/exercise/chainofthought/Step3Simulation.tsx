@@ -44,36 +44,44 @@ export function Step3Simulation({ onNext }: Step3SimulationProps) {
   useEffect(() => {
     if (phase === "chat") {
       let messageIndex = 0;
-      const interval = setInterval(() => {
+      const addNextMessage = () => {
         if (messageIndex < attackMessages.length) {
-          setMessages(prev => [...prev, attackMessages[messageIndex]]);
+          const msg = attackMessages[messageIndex];
+          setMessages(prev => [...prev, msg]);
           messageIndex++;
-        } else {
-          clearInterval(interval);
-          setTimeout(() => setPhase("extraction"), 1000);
+          if (messageIndex < attackMessages.length) {
+            setTimeout(addNextMessage, 1500);
+          } else {
+            setTimeout(() => setPhase("extraction"), 1000);
+          }
         }
-      }, 1500);
-      return () => clearInterval(interval);
+      };
+      const timer = setTimeout(addNextMessage, 500);
+      return () => clearTimeout(timer);
     }
   }, [phase]);
 
   useEffect(() => {
     if (phase === "extraction") {
       let thoughtIndex = 0;
-      const interval = setInterval(() => {
+      const addNextThought = () => {
         if (thoughtIndex < hiddenThoughts.length) {
-          setCurrentThought(prev => [...prev, hiddenThoughts[thoughtIndex]]);
+          const thought = hiddenThoughts[thoughtIndex];
+          setCurrentThought(prev => [...prev, thought]);
           setRevealProgress(((thoughtIndex + 1) / hiddenThoughts.length) * 100);
           thoughtIndex++;
-        } else {
-          clearInterval(interval);
-          setTimeout(() => {
-            setThoughtsRevealed(true);
-            setPhase("revealed");
-          }, 1000);
+          if (thoughtIndex < hiddenThoughts.length) {
+            setTimeout(addNextThought, 800);
+          } else {
+            setTimeout(() => {
+              setThoughtsRevealed(true);
+              setPhase("revealed");
+            }, 1000);
+          }
         }
-      }, 800);
-      return () => clearInterval(interval);
+      };
+      const timer = setTimeout(addNextThought, 500);
+      return () => clearTimeout(timer);
     }
   }, [phase]);
 
