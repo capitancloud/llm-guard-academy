@@ -103,18 +103,16 @@ export function Step4Feedback({ onNext }: Step4FeedbackProps) {
                   <p className="text-xs text-muted-foreground">{step.description}</p>
                 </div>
               </div>
-
-              {/* Connector arrow */}
-              {index < attackSteps.length - 1 && (
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                  className="hidden md:block absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 text-purple-400"
-                >
-                  →
-                </motion.div>
-              )}
             </motion.div>
+          ))}
+        </div>
+
+        {/* Connector arrows - rendered separately */}
+        <div className="hidden md:flex justify-center gap-4 mt-4">
+          {attackSteps.slice(0, -1).map((_, index) => (
+            <div key={index} className="flex-1 flex justify-end items-center px-4">
+              <span className="text-purple-400 text-xl">→</span>
+            </div>
           ))}
         </div>
       </div>
