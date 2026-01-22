@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Dashboard } from "@/components/Dashboard";
 import { PromptInjectionExercise } from "@/components/exercise/PromptInjectionExercise";
 import { JailbreakExercise } from "@/components/exercise/jailbreak/JailbreakExercise";
+import { SmugglingExercise } from "@/components/exercise/smuggling/SmugglingExercise";
 import OwaspTop10 from "@/pages/OwaspTop10";
 import type { Exercise } from "@/data/exercises";
 
@@ -45,6 +46,15 @@ const Index = () => {
     if (selectedExercise.slug === "jailbreak-ruolo") {
       return (
         <JailbreakExercise
+          onComplete={handleBackToDashboard}
+          onBack={handleBackToDashboard}
+        />
+      );
+    }
+
+    if (selectedExercise.slug === "prompt-smuggling") {
+      return (
+        <SmugglingExercise
           onComplete={handleBackToDashboard}
           onBack={handleBackToDashboard}
         />
