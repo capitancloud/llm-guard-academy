@@ -91,7 +91,7 @@ export const exercises: Exercise[] = [
     subtitle: "Usare le funzioni dell'LLM contro se stesso",
     description: "Comprendi come le chiamate a funzioni esterne possono essere manipolate per scopi malevoli.",
     icon: Wrench,
-    available: false,
+    available: true,
     difficulty: 'advanced',
   },
   {
