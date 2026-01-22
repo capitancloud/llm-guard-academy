@@ -6,15 +6,16 @@ import type { Exercise } from "@/data/exercises";
 
 interface DashboardProps {
   onSelectExercise: (exercise: Exercise) => void;
+  onNavigateOwasp?: () => void;
 }
 
-export function Dashboard({ onSelectExercise }: DashboardProps) {
+export function Dashboard({ onSelectExercise, onNavigateOwasp }: DashboardProps) {
   const availableCount = exercises.filter((e) => e.available).length;
   const totalCount = exercises.length;
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header onNavigateOwasp={onNavigateOwasp} />
       
       <main className="container mx-auto px-6 py-8">
         {/* Hero section */}
