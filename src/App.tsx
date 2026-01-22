@@ -5,6 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import OwaspTop10Page from "./pages/OwaspTop10Page";
+import PromptInjectionPage from "./pages/exercises/PromptInjectionPage";
+import JailbreakPage from "./pages/exercises/JailbreakPage";
+import SmugglingPage from "./pages/exercises/SmugglingPage";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +20,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/owasp-top-10" element={<OwaspTop10Page />} />
+          <Route path="/exercise/prompt-injection" element={<PromptInjectionPage />} />
+          <Route path="/exercise/jailbreak-ruolo" element={<JailbreakPage />} />
+          <Route path="/exercise/prompt-smuggling" element={<SmugglingPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
