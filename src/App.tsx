@@ -11,6 +11,7 @@ import PromptInjectionPage from "./pages/exercises/PromptInjectionPage";
 import JailbreakPage from "./pages/exercises/JailbreakPage";
 import SmugglingPage from "./pages/exercises/SmugglingPage";
 import LeakagePage from "./pages/exercises/LeakagePage";
+import PoisoningPage from "./pages/exercises/PoisoningPage";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/exercise/jailbreak-ruolo" element={<JailbreakPage />} />
             <Route path="/exercise/prompt-smuggling" element={<SmugglingPage />} />
             <Route path="/exercise/system-prompt-leakage" element={<LeakagePage />} />
+            <Route path="/exercise/context-poisoning" element={<PoisoningPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
