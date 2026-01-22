@@ -1,13 +1,19 @@
 import { motion } from "framer-motion";
 import { Shield, Terminal, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   showBack?: boolean;
   onBack?: () => void;
-  onNavigateOwasp?: () => void;
 }
 
-export function Header({ showBack, onBack, onNavigateOwasp }: HeaderProps) {
+export function Header({ showBack, onBack }: HeaderProps) {
+  const navigate = useNavigate();
+
+  const handleNavigateOwasp = () => {
+    navigate("/owasp-top-10");
+  };
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -43,9 +49,9 @@ export function Header({ showBack, onBack, onNavigateOwasp }: HeaderProps) {
         </div>
         
         <div className="flex items-center gap-4">
-          {!showBack && onNavigateOwasp && (
+          {!showBack && (
             <button
-              onClick={onNavigateOwasp}
+              onClick={handleNavigateOwasp}
               className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-cyber hover:bg-cyber/10 rounded-lg transition-all duration-200"
             >
               <BookOpen className="w-4 h-4" />
