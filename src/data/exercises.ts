@@ -61,7 +61,7 @@ export const exercises: Exercise[] = [
     subtitle: "Far parlare l'LLM di ciò che non dovrebbe dire",
     description: "Comprendi come un modello può essere indotto a rivelare le sue istruzioni segrete.",
     icon: MessageSquareWarning,
-    available: false,
+    available: true,
     difficulty: 'intermediate',
   },
   {
