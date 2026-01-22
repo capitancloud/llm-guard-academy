@@ -71,7 +71,7 @@ export const exercises: Exercise[] = [
     subtitle: "Avvelenare il contesto passo dopo passo",
     description: "Esplora come manipolare gradualmente il contesto di una conversazione per ottenere output dannosi.",
     icon: Biohazard,
-    available: false,
+    available: true,
     difficulty: 'intermediate',
   },
   {
