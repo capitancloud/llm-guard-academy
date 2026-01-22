@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dashboard } from "@/components/Dashboard";
 import { PromptInjectionExercise } from "@/components/exercise/PromptInjectionExercise";
+import { JailbreakExercise } from "@/components/exercise/jailbreak/JailbreakExercise";
 import type { Exercise } from "@/data/exercises";
 
 type View = "dashboard" | "exercise";
@@ -22,12 +23,24 @@ const Index = () => {
   };
 
   if (currentView === "exercise" && selectedExercise) {
-    return (
-      <PromptInjectionExercise
-        onComplete={handleBackToDashboard}
-        onBack={handleBackToDashboard}
-      />
-    );
+    // Route to the correct exercise based on slug
+    if (selectedExercise.slug === "prompt-injection") {
+      return (
+        <PromptInjectionExercise
+          onComplete={handleBackToDashboard}
+          onBack={handleBackToDashboard}
+        />
+      );
+    }
+    
+    if (selectedExercise.slug === "jailbreak-ruolo") {
+      return (
+        <JailbreakExercise
+          onComplete={handleBackToDashboard}
+          onBack={handleBackToDashboard}
+        />
+      );
+    }
   }
 
   return <Dashboard onSelectExercise={handleSelectExercise} />;
