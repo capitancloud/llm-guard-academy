@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Shield, Terminal, BookOpen } from "lucide-react";
+import { Shield, Terminal, BookOpen, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { clearAuthentication } from "@/lib/auth";
 
 interface HeaderProps {
   showBack?: boolean;
@@ -12,6 +13,11 @@ export function Header({ showBack, onBack }: HeaderProps) {
 
   const handleNavigateOwasp = () => {
     navigate("/owasp-top-10");
+  };
+
+  const handleLogout = () => {
+    clearAuthentication();
+    window.location.reload();
   };
 
   return (
@@ -62,6 +68,14 @@ export function Header({ showBack, onBack }: HeaderProps) {
             <span className="w-2 h-2 rounded-full bg-terminal animate-pulse" />
             <span>Lab attivo</span>
           </div>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-danger hover:bg-danger/10 rounded-lg transition-all duration-200"
+            title="Esci dalla piattaforma"
+          >
+            <LogOut className="w-4 h-4" />
+            <span className="hidden sm:inline">Esci</span>
+          </button>
         </div>
       </div>
     </motion.header>
